@@ -1,0 +1,32 @@
+{
+    "name": "surgems/env-condition",
+    "description": "Statamic Fieldtype that only displays it's content in a selected environment.",
+    "version": "1.0.0",
+    "license":[
+        "MIT"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Surgems\\EnvCondition\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Surge Marketing Solutions"
+        }
+    ],
+    "support": {
+        "email": "support@surgems.co.uk"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Env Condition",
+            "description": "Env Condition addon"
+        },
+        "laravel": {
+            "providers": [
+                "Surgems\\EnvCondition\\ServiceProvider"
+            ]
+        }
+    }
+}
