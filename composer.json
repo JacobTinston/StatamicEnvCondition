@@ -1,7 +1,7 @@
 {
     "name": "surgems/env-condition",
-    "description": "Statamic Fieldtype that only displays it's content in a selected environment.",
-    "version": "1.0.0",
+    "description": "Statamic Tag that only displays it's content in a selected environment.",
+    "version": "2.0.0",
     "license":[
         "MIT"
     ],

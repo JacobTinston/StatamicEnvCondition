@@ -6,7 +6,7 @@
 
 This addon does:
 
-- Allows you to select an environment variable that the fields content shows up in.
+- Allows you to display content/fields based on the <code>APP_ENV</code>.
 
 ## How to Install
 
@@ -18,12 +18,48 @@ composer require surgems/env-condition
 
 ## How to Use
 
-You can display a field whenever the <code>APP_ENV</code> is a certain environment.
-This modifier uses 3 environments:
+This addons uses 3 environments:
 
 - local
 - staging
 - production
+
+### Tag
+
+You can display content inside the tag depending on the condition of the <code>APP_ENV</code>.
+
+There are 2 tag Methods:
+
+```antlers
+{{ if_env env="local" }}
+    {{ content | widont }}
+{{ /if_env }}
+```
+
+This would display the content inside the tags if the <code>APP_ENV</code> IS 'local'.
+
+```antlers
+{{ if_env:not env="local" }}
+    {{ content | widont }}
+{{ /if_env:not }}
+```
+
+This would display the content inside the tags if the <code>APP_ENV</code> IS NOT 'local'.
+
+You can also add multiple parameters:
+
+```antlers
+{{ if_env:not env="local|staging" }}
+    {{ content | widont }}
+{{ /if_env:not }}
+```
+
+This would display the content inside the tags if the <code>APP_ENV</code> IS NOT 'local' OR 'staging'.
+
+
+### Modifier
+
+You can display a field whenever the <code>APP_ENV</code> is a certain environment.
 
 There are 2 modifiers:
 
@@ -43,14 +79,4 @@ You can also add multiple parameters:
 
 ```antlers
 {{ field | if_env:local:staging }}
-```
-
-This would display the field content if the <code>APP_ENV</code> IS equal to 'local' OR 'staging'.
-
-If the condition is not met, it returns false meaning you can also null check the values:
-
-```antlers
-{{ if field | if_env:local }}
-    <p>{{ field }}</p>
-{{ /if }}
 ```
